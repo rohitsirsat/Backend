@@ -1,8 +1,8 @@
 // its just a utiliy function which accept another function as parameter
 
 const asyncHandler = (requestHandler) => {
-  return (err, req, res) => {
-    Promise.resolve(requestHandler(err, req, res)).catch((err) => next(err));
+  return (req, res, next) => {
+    Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
   };
 };
 
