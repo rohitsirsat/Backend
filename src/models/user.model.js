@@ -59,7 +59,7 @@ userSchema.pre("save", async function (next) {
 
 /* here, ispasswordCorrect is a custom method 
     which compare password enter by user which is in
-    normal string and this.password which is encrypted by bcrypt
+    normal string and this.password which is encrypted by bcrypt and store in db
 */
 userSchema.methods.isPasswordCorrect = async function (password) {
   return await bcrypt.compare(password, this.password);
